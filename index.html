@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ASHIK JUBAYER RAHAT | Video Editor</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #080808;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        /* NAVBAR */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(8, 8, 8, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid #222;
+        }
+
+        .nav-container {
+            max-width: 1150px;
+            margin: auto;
+            padding: 18px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: #d4af37;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            color: #ddd;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #d4af37;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 120px 20px 70px;
+            background:
+                radial-gradient(circle at top, #222 0%, #080808 45%, #050505 100%);
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 8px 18px;
+            border: 1px solid #555;
+            border-radius: 50px;
+            color: #d4af37;
+            font-size: 13px;
+            margin-bottom: 25px;
+            letter-spacing: 2px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 90px);
+            line-height: 1;
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+
+        .hero h1 span {
+            color: #d4af37;
+        }
+
+        .hero h2 {
+            color: #ccc;
+            font-size: clamp(20px, 3vw, 30px);
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .hero p {
+            max-width: 650px;
+            margin: auto;
+            color: #999;
+            font-size: 17px;
+        }
+
+        .buttons {
+            margin-top: 35px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 27px;
+            margin: 7px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .primary {
+            background: #d4af37;
+            color: #000;
+        }
+
+        .secondary {
+            border: 1px solid #555;
+            color: #fff;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        /* SECTIONS */
+        section {
+            max-width: 1150px;
+            margin: auto;
+            padding: 100px 25px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .section-title span {
+            color: #d4af37;
+        }
+
+        .section-title p {
+            color: #888;
+        }
+
+        /* ABOUT */
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 30px;
+            margin-bottom: 18px;
+        }
+
+        .about-text p {
+            color: #aaa;
+            margin-bottom: 15px;
+        }
+
+        .about-card {
+            padding: 40px;
+            border: 1px solid #252525;
+            background: #101010;
+            border-radius: 15px;
+        }
+
+        .about-card h3 {
+            color: #d4af37;
+            margin-bottom: 15px;
+        }
+
+        /* PORTFOLIO */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .project {
+            background: #111;
+            border: 1px solid #252525;
+            border-radius: 14px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .project:hover {
+            transform: translateY(-7px);
+            border-color: #d4af37;
+        }
+
+        .project-image {
+            height: 190px;
+            background: linear-gradient(135deg, #242424, #0e0e0e);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-size: 15px;
+        }
+
+        .project-content {
+            padding: 22px;
+        }
+
+        .project-content h3 {
+            margin-bottom: 8px;
+        }
+
+        .project-content p {
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* SKILLS */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .skill {
+            padding: 28px;
+            background: #101010;
+            border: 1px solid #242424;
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .skill h3 {
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .skill p {
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* EDUCATION */
+        .education {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .edu-card {
+            padding: 25px;
+            margin-bottom: 18px;
+            background: #101010;
+            border-left: 3px solid #d4af37;
+            border-radius: 8px;
+        }
+
+        .edu-card h3 {
+            margin-bottom: 5px;
+        }
+
+        .edu-card p {
+            color: #888;
+        }
+
+        /* CERTIFICATES */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .certificate {
+            min-height: 220px;
+            background: #101010;
+            border: 1px solid #292929;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 25px;
+        }
+
+        .certificate h3 {
+            color: #d4af37;
+            margin-bottom: 8px;
+        }
+
+        .certificate p {
+            color: #888;
+            font-size: 14px;
+        }
+
+        /* CONTACT */
+        .contact-box {
+            max-width: 750px;
+            margin: auto;
+            text-align: center;
+            padding: 50px 25px;
+            background: #101010;
+            border: 1px solid #252525;
+            border-radius: 18px;
+        }
+
+        .contact-box p {
+            color: #999;
+            margin: 15px auto 25px;
+        }
+
+        .contact-links a {
+            display: inline-block;
+            margin: 6px;
+            padding: 12px 20px;
+            border: 1px solid #333;
+            border-radius: 7px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .contact-links a:hover {
+            border-color: #d4af37;
+            color: #d4af37;
+        }
+
+        /* FOOTER */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid #222;
+            color: #666;
+            font-size: 14px;
+        }
+
+        footer span {
+            color: #d4af37;
+        }
+
+        /* MOBILE */
+        @media (max-width: 800px) {
+            nav ul {
+                display: none;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-grid,
+            .skills-grid,
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 75px 20px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">AJR<span>.</span></div>
+
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+
+            <div class="tag">VIDEO EDITOR • CREATIVE DESIGNER</div>
+
+            <h1>ASHIK JUBAYER <span>RAHAT</span></h1>
+
+            <h2>Professional Video Editor & Creative Designer</h2>
+
+            <p>
+                I create engaging videos, cinematic content and creative
+                visual experiences designed to make every story more powerful.
+            </p>
+
+            <div class="buttons">
+                <a href="#portfolio" class="btn primary">View My Work</a>
+                <a href="#contact" class="btn secondary">Contact Me</a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about">
+
+        <div class="section-title">
+            <h2>About <span>Me</span></h2>
+            <p>A little bit about who I am</p>
+        </div>
+
+        <div class="about">
+
+            <div class="about-text">
+                <h3>Creative Mind. Visual Storyteller.</h3>
+
+                <p>
+                    Hello! I'm <strong>Ashik Jubayer Rahat</strong>,
+                    a passionate video editor and creative designer.
+                </p>
+
+                <p>
+                    I enjoy turning raw footage and ideas into engaging,
+                    professional and visually powerful content.
+                </p>
+
+                <p>
+                    My goal is simple — create content that looks premium
+                    and communicates the message clearly.
+                </p>
+            </div>
+
+            <div class="about-card">
+                <h3>What I Do</h3>
+                <p>🎬 Video Editing</p>
+                <p>🎨 Thumbnail Design</p>
+                <p>✨ Motion Graphics</p>
+                <p>📱 Social Media Content</p>
+                <p>🎞️ Cinematic Editing</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+
+        <div class="section-title">
+            <h2>My <span>Portfolio</span></h2>
+            <p>Selected video editing projects</p>
+        </div>
+
+        <div class="portfolio-grid">
+
+            <div class="project">
+                <div class="project-image">
+                    YOUR VIDEO / THUMBNAIL
+                </div>
+                <div class="project-content">
+                    <h3>Video Project One</h3>
+                    <p>Professional video editing project.</p>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-image">
+                    YOUR VIDEO / THUMBNAIL
+                </div>
+                <div class="project-content">
+                    <h3>Video Project Two</h3>
+                    <p>Cinematic and creative editing project.</p>
+                </div>
+            </div>
+
+            <div class="project">
+                <div class="project-image">
+                    YOUR VIDEO / THUMBNAIL
+                </div>
+                <div class="project-content">
+                    <h3>Video Project Three</h3>
+                    <p>Social media content editing project.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SKILLS -->
+    <section id="skills">
+
+        <div class="section-title">
+            <h2>My <span>Skills</span></h2>
+            <p>Tools and creative skills</p>
+        </div>
+
+        <div class="skills-grid">
+
+            <div class="skill">
+                <h3>Video Editing</h3>
+                <p>Professional editing, pacing and storytelling.</p>
+            </div>
+
+            <div class="skill">
+                <h3>Adobe Premiere Pro</h3>
+                <p>Video editing and professional post-production.</p>
+            </div>
+
+            <div class="skill">
+                <h3>After Effects</h3>
+                <p>Motion graphics, animation and visual effects.</p>
+            </div>
+
+            <div class="skill">
+                <h3>Photoshop</h3>
+                <p>Thumbnail and creative graphic design.</p>
+            </div>
+
+            <div class="skill">
+                <h3>Motion Graphics</h3>
+                <p>Modern animations and visual effects.</p>
+            </div>
+
+            <div class="skill">
+                <h3>Social Media Content</h3>
+                <p>Content optimized for digital platforms.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EDUCATION -->
+    <section id="education">
+
+        <div class="section-title">
+            <h2>My <span>Education</span></h2>
+            <p>Academic background</p>
+        </div>
+
+        <div class="education">
+
+            <div class="edu-card">
+                <h3>Your Educational Institution</h3>
+                <p>Your Degree / Course • Year</p>
+            </div>
+
+            <div class="edu-card">
+                <h3>Your Educational Institution</h3>
+                <p>Your Degree / Course • Year</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CERTIFICATES -->
+    <section id="certificates">
+
+        <div class="section-title">
+            <h2>Certificates <span>& Proof</span></h2>
+            <p>My achievements and certifications</p>
+        </div>
+
+        <div class="cert-grid">
+
+            <div class="certificate">
+                <div>
+                    <h3>Certificate 01</h3>
+                    <p>Your certificate image will go here.</p>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <div>
+                    <h3>Certificate 02</h3>
+                    <p>Your certificate image will go here.</p>
+                </div>
+            </div>
+
+            <div class="certificate">
+                <div>
+                    <h3>Certificate 03</h3>
+                    <p>Your certificate image will go here.</p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CONTACT -->
+    <section id="contact">
+
+        <div class="section-title">
+            <h2>Let's <span>Work Together</span></h2>
+            <p>Have a project in mind? Get in touch.</p>
+        </div>
+
+        <div class="contact-box">
+
+            <h2>ASHIK JUBAYER RAHAT</h2>
+
+            <p>
+                Video Editor & Creative Designer
+            </p>
+
+            <div class="contact-links">
+
+                <a href="mailto:your@email.com">
+                    Email Me
+                </a>
+
+                <a href="#">
+                    Facebook
+                </a>
+
+                <a href="#">
+                    Instagram
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+        © 2026 <span>ASHIK JUBAYER RAHAT</span>. All Rights Reserved.
+    </footer>
+
+</body>
+</html>
